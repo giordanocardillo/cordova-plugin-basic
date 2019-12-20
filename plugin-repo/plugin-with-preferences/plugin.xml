@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-basic" version="1.0.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>The Basic Plugin</name>
+    <engine name="cordova-android" version=">=t6.4.0"/>
+    <js-module name="module" src="www/plugin.js">
+        <clobbers target="cordova.plugins.basicPlugin"/>
+    </js-module>
+    <preference name="PREFERENCE"/>
+    <platform name="android">
+        <source-file src="src/android/com/basic/plugin/Cool.java"
+                     target-dir="src/com/basic/plugin"/>
+        <config-file target="./res/values/strings.xml" parent="/resources">
+            <string name="stringFromPreferences">$PREFERENCE</string>
+        </config-file>
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="basicPlugin">
+                <param name="android-package" value="com.basic.plugin.Cool"/>
+            </feature>
+        </config-file>
+    </platform>
+    <hook type="after_plugin_install" src="scripts/after_plugin_install.js"/>
+    <hook type="after_prepare" src="scripts/after_prepare.js"/>
+</plugin>
+

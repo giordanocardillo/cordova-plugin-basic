@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-basic" version="1.0.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>The Basic Plugin</name>
+    <engine name="cordova-android" version=">=6.4.0"/>
+    <js-module name="module" src="www/plugin.js">
+        <clobbers target="cordova.plugins.basicPlugin"/>
+    </js-module>
+    <platform name="android">
+        <source-file src="src/android/com/basic/plugin/Cool.java"
+                     target-dir="src/com/basic/plugin"/>
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="basicPlugin">
+                <param name="android-package" value="com.basic.plugin.Cool"/>
+            </feature>
+        </config-file>
+    </platform>
+</plugin>
+
